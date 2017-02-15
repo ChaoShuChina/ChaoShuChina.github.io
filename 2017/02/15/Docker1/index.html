@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Docker 入门到实战（1） | 舒超个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="作者:舒超,转载请注明出处（chaoshuchina.github.io）。受教研室一个德高望重的师兄的启发，我开始接触Docker这个可爱的工具，利用寒假时间，看完了在docker社区大家都非常推荐的一些资料。我发现越是了解深入，就越了解到这个工具在虚拟化中的强大魔力.正如官方网站说的那样：“Docker是个划时代的开源项目,它彻底释放了计算虚拟化的威力,极大提高了应用的运行效率,降低了云计算资">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker 入门到实战（1）">
+<meta property="og:url" content="https://chaoshuchina.github.io/2017/02/15/Docker1/index.html">
+<meta property="og:site_name" content="舒超个人博客">
+<meta property="og:description" content="作者:舒超,转载请注明出处（chaoshuchina.github.io）。受教研室一个德高望重的师兄的启发，我开始接触Docker这个可爱的工具，利用寒假时间，看完了在docker社区大家都非常推荐的一些资料。我发现越是了解深入，就越了解到这个工具在虚拟化中的强大魔力.正如官方网站说的那样：“Docker是个划时代的开源项目,它彻底释放了计算虚拟化的威力,极大提高了应用的运行效率,降低了云计算资">
+<meta property="og:image" content="https://chaoshuchina.github.io/images/docker1.png">
+<meta property="og:image" content="https://chaoshuchina.github.io/images/docker2.png">
+<meta property="og:updated_time" content="2017-02-15T08:32:56.386Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker 入门到实战（1）">
+<meta name="twitter:description" content="作者:舒超,转载请注明出处（chaoshuchina.github.io）。受教研室一个德高望重的师兄的启发，我开始接触Docker这个可爱的工具，利用寒假时间，看完了在docker社区大家都非常推荐的一些资料。我发现越是了解深入，就越了解到这个工具在虚拟化中的强大魔力.正如官方网站说的那样：“Docker是个划时代的开源项目,它彻底释放了计算虚拟化的威力,极大提高了应用的运行效率,降低了云计算资">
+<meta name="twitter:image" content="https://chaoshuchina.github.io/images/docker1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="舒超个人博客" type="application/atom+xml">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="touxiang.png" />
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">舒超个人博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">创新驱动未来!</a>
+        </h2>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Docker1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/15/Docker1/" class="article-date">
+  <time datetime="2017-02-15T08:38:37.986Z" itemprop="datePublished">2017-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Docker 入门到实战（1）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作者:舒超,转载请注明出处（chaoshuchina.github.io）。<br>受教研室一个德高望重的师兄的启发，我开始接触Docker这个可爱的工具，利用寒假时间，看完了在docker社区大家都非常推荐的一些资料。我发现越是了解深入，就越了解到这个工具在虚拟化中的强大魔力.正如官方网站说的那样：“Docker是个划时代的开源项目,它彻底释放了计算虚拟化的威力,极大提高了应用的运行效率,降低了云计算资源供应的成本!使用Docker,可以让应用的部署、测试和分发都变得前所未有的高效和轻松!”<br>资料下载链接:<a href="https://www.gitbook.com/book/yeasy/docker_practice/details" target="_blank" rel="external">https://www.gitbook.com/book/yeasy/docker_practice/details</a><br>我准备基于我的学习和docker方面的实践，在给自身充电的同时，处于记录/整理/分享知识的目的，我将写两到三篇博客介绍我的docker学习历程。前面主要介绍我在查看资料过程中，觉得重要的基础知识，后面主要介绍我在利用docker的实践。</p>
+<p></p><h2>学习前的基本概念:</h2><br>之前对很多基本的概念不够熟悉，利用假期，都恶补了一下:<br>LXC:linux containers,linux容器工具<br>AUFS: another unionfs<br>LVM:logical volume manager,逻辑卷管理<br>RAID:磁盘阵列<br>ip地址/子网掩码/网关/DNS服务器:<a href="http://www.cnblogs.com/JuneWang/p/3917697.html" target="_blank" rel="external">http://www.cnblogs.com/JuneWang/p/3917697.html</a><p></p>
+<p></p><h2>Docker简介:</h2><p></p>
+<li>Docker    在容器的基础上,进行了进一步的封装,从文件系统、网络互联到进程隔离等等,极大的简化了容器的创建和维护。使得Docker技术比虚拟机技术更为轻便、快捷。下面的图片比较了Docker和传统虚拟化方式的不同之处。传统虚拟机技术是虚拟出一套硬件后,在其上运行一个完整操作系统,在该系统上再运行所需应用进程;而容器内的应用进程直接运行于宿主的内核,容器内没有自己的内核,而且也没有进行硬件虚拟。因此容器要比传统虚拟机更为轻便。<br>下面两张图生动的描述了docker与传统虚拟化的区别:<br><div style="float:center;" width="718px"><img border="0" src="/images/docker1.png" width="“200px”"></div><br><div style="float:center;" width="718px"><img border="0" src="/images/docker2.png" width="“200px”"></div></li><br><li><br>为什么要使用docker？<br>1.更高效的利用系统资源<br>2.更轻松的打包迁移<br>3.更快速的启动时间<br>4.持续交付和部署<br>总之能解决“这段代码在我的电脑上没问题”，这类的问题<br></li><br><li><br>docker三个最重要的基本概念:容器（container）/镜像（images）/仓库（respository）<br></li>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chaoshuchina.github.io/2017/02/15/Docker1/" data-id="ciz6ph3uz0000jc1u6rdb0405" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/15/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">个人简历</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Snow Shu<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

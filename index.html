@@ -60,6 +60,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Docker1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/15/Docker1/" class="article-date">
+  <time datetime="2017-02-15T08:38:37.986Z" itemprop="datePublished">2017-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/15/Docker1/">Docker 入门到实战（1）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作者:舒超,转载请注明出处（chaoshuchina.github.io）。<br>受教研室一个德高望重的师兄的启发，我开始接触Docker这个可爱的工具，利用寒假时间，看完了在docker社区大家都非常推荐的一些资料。我发现越是了解深入，就越了解到这个工具在虚拟化中的强大魔力.正如官方网站说的那样：“Docker是个划时代的开源项目,它彻底释放了计算虚拟化的威力,极大提高了应用的运行效率,降低了云计算资源供应的成本!使用Docker,可以让应用的部署、测试和分发都变得前所未有的高效和轻松!”<br>资料下载链接:<a href="https://www.gitbook.com/book/yeasy/docker_practice/details" target="_blank" rel="external">https://www.gitbook.com/book/yeasy/docker_practice/details</a><br>我准备基于我的学习和docker方面的实践，在给自身充电的同时，处于记录/整理/分享知识的目的，我将写两到三篇博客介绍我的docker学习历程。前面主要介绍我在查看资料过程中，觉得重要的基础知识，后面主要介绍我在利用docker的实践。</p>
+<p></p><h2>学习前的基本概念:</h2><br>之前对很多基本的概念不够熟悉，利用假期，都恶补了一下:<br>LXC:linux containers,linux容器工具<br>AUFS: another unionfs<br>LVM:logical volume manager,逻辑卷管理<br>RAID:磁盘阵列<br>ip地址/子网掩码/网关/DNS服务器:<a href="http://www.cnblogs.com/JuneWang/p/3917697.html" target="_blank" rel="external">http://www.cnblogs.com/JuneWang/p/3917697.html</a><p></p>
+<p></p><h2>Docker简介:</h2><p></p>
+<li>Docker    在容器的基础上,进行了进一步的封装,从文件系统、网络互联到进程隔离等等,极大的简化了容器的创建和维护。使得Docker技术比虚拟机技术更为轻便、快捷。下面的图片比较了Docker和传统虚拟化方式的不同之处。传统虚拟机技术是虚拟出一套硬件后,在其上运行一个完整操作系统,在该系统上再运行所需应用进程;而容器内的应用进程直接运行于宿主的内核,容器内没有自己的内核,而且也没有进行硬件虚拟。因此容器要比传统虚拟机更为轻便。<br>下面两张图生动的描述了docker与传统虚拟化的区别:<br><div style="float:center;" width="718px"><img border="0" src="/images/docker1.png" width="“200px”"></div><br><div style="float:center;" width="718px"><img border="0" src="/images/docker2.png" width="“200px”"></div></li><br><li><br>为什么要使用docker？<br>1.更高效的利用系统资源<br>2.更轻松的打包迁移<br>3.更快速的启动时间<br>4.持续交付和部署<br>总之能解决“这段代码在我的电脑上没问题”，这类的问题<br></li><br><li><br>docker三个最重要的基本概念:容器（container）/镜像（images）/仓库（respository）<br></li>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chaoshuchina.github.io/2017/02/15/Docker1/" data-id="ciz6ph3uz0000jc1u6rdb0405" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/02/15/hello-world/" class="article-date">
@@ -107,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://chaoshuchina.github.io/2017/02/15/hello-world/" data-id="ciz6peqwb0000hk1uxjmoej06" class="article-share-link">Share</a>
+      <a data-url="https://chaoshuchina.github.io/2017/02/15/hello-world/" data-id="ciz6ph3v70001jc1u7pjjs3te" class="article-share-link">Share</a>
       
       
     </footer>
